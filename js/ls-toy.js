@@ -2,12 +2,12 @@
 
 module.exports = listToys;
 
-function listToys(db, toy) {
-	db.each(`SELECT name FROM kidz WHERE toy = "${toy}"`, (err, {name}) => {
+function listToys(db, name) {
+	db.each(`SELECT toy FROM kidz WHERE name = "${name}"`, (err, {toy}) => {
 		if (err) {
 			return console.log(err.toString());
 		} else {
-			console.log(`${name}`);
+			console.log(`${toy}`);
 		}
 	});
 }
