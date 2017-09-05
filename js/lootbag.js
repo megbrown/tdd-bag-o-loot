@@ -5,6 +5,7 @@ const addChild = require('../js/add');
 const removeChild = require('../js/remove');
 const listChildren = require('../js/ls');
 const listToys = require('../js/ls-toy');
+const deliver = require('../js/deliver');
 const { argv: [,, ...args] } = process;
 const [action, toy, name] = args;
 const db = new sqlite3.Database('bag-o-loot.sqlite');
@@ -22,7 +23,7 @@ if (action == "add") {
 		listToys(db, toy);
 	}
 } else {
-	console.log("sorry");
+	deliver(db, toy);
 }
 
 
